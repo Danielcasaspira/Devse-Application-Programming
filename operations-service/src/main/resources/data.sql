@@ -1,0 +1,2 @@
+INSERT INTO account (id, client_id, number_Account, type_Account, initial_Balance, status) VALUES (1, 1, '478758', 'Ahorros', 20000, true);
+INSERT INTO account (id, client_id, number_Account, type_Account, initial_Balance, status) VALUES (2, 1, '478758', 'Ahorros', 10000, true);
