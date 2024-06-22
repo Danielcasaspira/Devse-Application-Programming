@@ -9,13 +9,13 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@DiscriminatorValue("Cliente")
-public class Cliente extends Persona {
+@DiscriminatorValue("Client")
+public class Client extends Person {
 
     @Column(nullable = false)
-    private String contrasena;
+    private String password;
 
     @Column(nullable = false)
-    private boolean estado;
+    private boolean status;
 
 }

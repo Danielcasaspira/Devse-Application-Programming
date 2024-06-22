@@ -10,23 +10,23 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @Entity
 @Inheritance(strategy = InheritanceType.SINGLE_TABLE)
-@DiscriminatorColumn(name = "tipo", discriminatorType = DiscriminatorType.STRING)
-public class Persona {
+@DiscriminatorColumn(name = "type", discriminatorType = DiscriminatorType.STRING)
+public class Person {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String nombre;
+    private String name;
 
-    private String genero;
+    private String gender;
 
-    private int edad;
+    private int age;
 
-    private String identificacion;
+    private String identification;
 
-    private String direccion;
+    private String address;
 
-    private String telefono;
+    private String phone;
 
 }

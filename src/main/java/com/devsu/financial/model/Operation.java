@@ -12,23 +12,23 @@ import java.time.LocalDate;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Movimientos")
-public class Movimiento {
+@Table(name = "Operations")
+public class Operation {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "cuenta_id", referencedColumnName = "id", nullable = false)
-    private Cuenta cuenta;
+    @JoinColumn(name = "account_id", referencedColumnName = "id", nullable = false)
+    private Account account;
 
-    private LocalDate fecha;
+    private LocalDate date;
 
-    private String tipoMovimiento;
+    private String typeOperation;
 
-    private double valor;
+    private double amount;
 
-    private double saldo;
+    private double balance;
 
 }

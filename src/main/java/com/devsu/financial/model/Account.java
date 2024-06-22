@@ -9,24 +9,24 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Entity
-@Table(name = "Cuenta")
-public class Cuenta {
+@Table(name = "Account")
+public class Account {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name = "cliente_id", referencedColumnName = "id", nullable = false)
-    private Cliente cliente;
+    @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = false)
+    private Client client;
 
-    private String numeroCuenta;
+    private String numberAccount;
 
-    private String tipoCuenta;
+    private String typeAccount;
 
-    private double saldoInicial;
+    private double initialBalance;
 
-    private boolean estado;
+    private boolean status;
 
 
 

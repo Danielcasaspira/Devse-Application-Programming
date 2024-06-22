@@ -1,4 +1,4 @@
 package com.devsu.financial.model;
 
-public class Reporte {
+public class Report {
 }
