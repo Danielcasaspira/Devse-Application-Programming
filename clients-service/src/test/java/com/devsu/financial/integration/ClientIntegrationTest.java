@@ -8,3 +8,4 @@ public class ClientIntegrationTest {
         return Karate.run("classpath:karate/clients/create-client.feature").relativeTo(getClass());
     }
 }
+

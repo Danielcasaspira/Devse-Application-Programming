@@ -29,7 +29,7 @@ public class OperationService {
 
         double newBalance = account.getInitialBalance() + operation.getAmount();
         if(newBalance < 0){
-            throw new NoSuchElementException("Balance not available");
+            throw new RuntimeException("Balance not available");
         }
 
         account.setInitialBalance(newBalance);

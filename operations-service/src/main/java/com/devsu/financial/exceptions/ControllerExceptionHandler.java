@@ -14,4 +14,9 @@ public class ControllerExceptionHandler {
     public ErrorResponse notFound(NoSuchElementException ex){
         return ErrorResponse.create(ex, HttpStatus.NOT_FOUND, ex.getMessage());
     }
+
+    @ExceptionHandler(RuntimeException.class)
+    public ErrorResponse handleNotBalance(RuntimeException ex){
+        return ErrorResponse.create(ex, HttpStatus.NOT_FOUND, ex.getMessage());
+    }
 }
