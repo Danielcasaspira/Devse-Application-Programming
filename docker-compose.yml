@@ -11,7 +11,7 @@ services:
       POSTGRES_PASSWORD: pluralsight
     ports:
       - '5432:5432'
-  clients: #First service
+  clients:
     image: clients-service:0.0.1-SNAPSHOT
     depends_on:
       - postgres
@@ -20,7 +20,7 @@ services:
       - "SPRING_PROFILES_ACTIVE=docker"
     ports:
       - '8085:8085'
-  operations: #Second service
+  operations: 
     image: operations-service:0.0.1-SNAPSHOT
     depends_on:
       - postgres

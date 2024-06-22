@@ -23,8 +23,8 @@ public class AccountService {
 
     public Account createAccount(AccountRequest accountRequest){
 
-        Long clienteId = accountRequest.getClientId();
-        if (clientConsumer.getClient(clienteId) == null) {
+        Long clientId = accountRequest.getClientId();
+        if (clientConsumer.getClient(clientId) == null) {
             throw new NoSuchElementException("Client not found");
         }
 
@@ -33,7 +33,7 @@ public class AccountService {
         account.setTypeAccount(accountRequest.getTypeAccount());
         account.setInitialBalance(accountRequest.getInitialBalance());
         account.setStatus(accountRequest.isStatus());
-        account.setClientId(clienteId);
+        account.setClientId(clientId);
 
         return accountRepository.save(account);
     }
