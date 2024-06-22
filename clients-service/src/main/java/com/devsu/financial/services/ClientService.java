@@ -21,7 +21,10 @@ public class ClientService {
     }
 
     public Client createClient(Client client){
-        return clientRepository.save(client);
+
+        Client savedClient = clientRepository.save(client);
+        notifyAccountService(savedClient);
+        return savedClient;
     }
 
     public Client updateClient(Long id, Client client){

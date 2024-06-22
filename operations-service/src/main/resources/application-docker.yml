@@ -1,8 +1,8 @@
 server:
-  port: 8081
+  port: 8082
 spring:
   datasource:
-    url: jdbc:postgresql://postgres:5432/clientsFinancialDb
+    url: jdbc:postgresql://postgres:5432/operationsFinancialDb
     username: postgres
     password: admin
   jpa:

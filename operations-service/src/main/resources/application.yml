@@ -1,14 +1,14 @@
 server:
-  port: 8081
+  port: 8082
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/clientsFinancialDb
+    url: jdbc:postgresql://localhost:5432/operationsFinancialDb
     username: postgres
     password: admin
   jpa:
     hibernate:
-      ddl-auto: none #We dont want hibernate to create table when we start the application
-    open-in-view: false #Change how database sessions are handled with regard to the open session in view pattern
+      ddl-auto: none
+    open-in-view: false
     properties:
       hibernate:
         dialect: org.hibernate.dialect.PostgreSQLDialect
