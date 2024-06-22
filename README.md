@@ -65,3 +65,17 @@ The Financial Microservices Application is a distributed system composed of two 
    ```sh
    git clone <repository-url>
    cd financial-microservices
+
+2. **Build the Docker images:**:
+   ```sh
+   docker-compose build
+   
+3. **Start the containers:**:
+   ```sh
+   docker-compose up -d
+   
+4. **Verify the services:**:
+
+   - **Client-Service: http://localhost:8080
+   - **Operations-Service: http://localhost:8082
+
