@@ -76,6 +76,6 @@ The Financial Microservices Application is a distributed system composed of two 
    
 4. **Verify the services:**:
 
-   - **Client-Service: http://localhost:8080
-   - **Operations-Service: http://localhost:8082
+   - Client-Service: http://localhost:8080
+   - Operations-Service: http://localhost:8082
 
