@@ -1,0 +1,32 @@
+services:
+  rabbitmq:
+    image: rabbitmq:3-management-alpine
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+  postgres:
+    image: postgres
+    environment:
+      POSTGRES_USER: pluralsight
+      POSTGRES_PASSWORD: pluralsight
+    ports:
+      - '5432:5432'
+  clients: #First service
+    image: clients-service:0.0.1-SNAPSHOT
+    depends_on:
+      - postgres
+      - rabbitmq
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
+    ports:
+      - '8085:8085'
+  operations: #Second service
+    image: operations-service:0.0.1-SNAPSHOT
+    depends_on:
+      - postgres
+      - rabbitmq
+      - clients
+    environment:
+      - "SPRING_PROFILES_ACTIVE=docker"
+    ports:
+      - '8086:8086'

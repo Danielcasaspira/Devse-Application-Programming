@@ -3,7 +3,6 @@ package com.devsu.financial.services;
 import com.devsu.financial.model.Client;
 import com.devsu.financial.model.Account;
 import com.devsu.financial.model.AccountRequest;
-import com.devsu.financial.repositories.ClientRepository;
 import com.devsu.financial.repositories.AccountRepository;
 import org.springframework.stereotype.Service;
 
@@ -15,19 +14,19 @@ public class AccountService {
 
     private final AccountRepository accountRepository;
 
-    private final ClientRepository clientRepository;
+    private final ClientConsumer clientConsumer;
 
 
-    public AccountService(AccountRepository accountRepository, ClientRepository clientRepository) {
+    public AccountService(AccountRepository accountRepository, ClientConsumer clientConsumer) {
         this.accountRepository = accountRepository;
-        this.clientRepository = clientRepository;
+        this.clientConsumer = clientConsumer;
     }
 
     public Account createAccount(AccountRequest accountRequest){
-
-        Client client = clientRepository.findById(accountRequest.getClientId())
-                .orElseThrow(() -> new NoSuchElementException("Customer not found, please specify existing one"));
-
+        Client client = clientConsumer.getClient(accountRequest.getClientId());
+        if (client == null) {
+            throw new NoSuchElementException("Client not found");
+        }
         Account account = new Account();
         account.setNumberAccount(accountRequest.getNumberAccount());
         account.setTypeAccount(accountRequest.getTypeAccount());

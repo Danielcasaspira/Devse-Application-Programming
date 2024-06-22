@@ -2,6 +2,7 @@ package com.devsu.financial.services;
 
 import com.devsu.financial.model.Client;
 import com.devsu.financial.repositories.ClientRepository;
+import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -12,8 +13,11 @@ public class ClientService {
 
     private final ClientRepository clientRepository;
 
-    public ClientService(ClientRepository clientRepository) {
+    private final RabbitTemplate rabbitTemplate;
+
+    public ClientService(ClientRepository clientRepository, RabbitTemplate rabbitTemplate) {
         this.clientRepository = clientRepository;
+        this.rabbitTemplate = rabbitTemplate;
     }
 
     public Client createClient(Client client){
@@ -41,6 +45,10 @@ public class ClientService {
 
     public List<Client> getAllClients() {
         return clientRepository.findAll();
+    }
+
+    public void notifyAccountService(Client client) {
+        rabbitTemplate.convertAndSend("clientQueue", client);
     }
 
 }
