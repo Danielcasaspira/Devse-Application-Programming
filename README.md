@@ -64,7 +64,7 @@ The Financial Microservices Application is a distributed system composed of two 
 1. **Clone the repository**:
    ```sh
    git clone <repository-url>
-   cd financial-microservices
+   cd Devsu-Application-Programming
 
 2. **Build the Docker images:**:
    ```sh
