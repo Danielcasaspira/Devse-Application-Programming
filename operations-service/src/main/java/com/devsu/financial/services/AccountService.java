@@ -1,6 +1,5 @@
 package com.devsu.financial.services;
 
-import com.devsu.financial.model.Client;
 import com.devsu.financial.model.Account;
 import com.devsu.financial.model.AccountRequest;
 import com.devsu.financial.repositories.AccountRepository;
@@ -23,16 +22,18 @@ public class AccountService {
     }
 
     public Account createAccount(AccountRequest accountRequest){
-        Client client = clientConsumer.getClient(accountRequest.getClientId());
-        if (client == null) {
+
+        Long clienteId = accountRequest.getClientId();
+        if (clientConsumer.getClient(clienteId) == null) {
             throw new NoSuchElementException("Client not found");
         }
+
         Account account = new Account();
         account.setNumberAccount(accountRequest.getNumberAccount());
         account.setTypeAccount(accountRequest.getTypeAccount());
         account.setInitialBalance(accountRequest.getInitialBalance());
         account.setStatus(accountRequest.isStatus());
-        account.setClient(client);
+        account.setClientId(clienteId);
 
         return accountRepository.save(account);
     }

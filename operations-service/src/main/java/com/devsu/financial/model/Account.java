@@ -16,9 +16,7 @@ public class Account {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne(optional = false)
-    @JoinColumn(name = "client_id", referencedColumnName = "id", nullable = false)
-    private Client client;
+    private Long clientId;
 
     private String numberAccount;
 
